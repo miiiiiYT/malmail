@@ -33,25 +33,3 @@ class Gui:
     ]
 
     window = sg.Window('MalMail 0.0.1', layout, resizable=True, finalize=True)
-
-# while True:
-#     event, values = window.read()# type: ignore
-#     print(event,values)
-
-#     if event in (sg.WIN_CLOSED,'Exit'):
-#         break
-
-# window.close()
-
-
-# import PySimpleGUI as sg
-
-# layout = [[sg.Text('Item 1', background_color='red'),
-#             sg.VSep(),
-#             sg.Column([[sg.Text('Item 2', background_color='yellow')],
-#                 [sg.Text('Item 3', background_color='green')]], background_color='blue'),
-#             sg.VSep(),sg.Text('Item 4', background_color='purple')]]
-
-# window = sg.Window('Nested Layout', layout)
-# event, values = window.read()
-# window.close()
