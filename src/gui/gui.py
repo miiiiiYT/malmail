@@ -32,4 +32,6 @@ class Gui:
         ]
     ]
 
-    window = sg.Window('MalMail 0.0.1', layout, resizable=True, finalize=True)
+    w,h = sg.Window.get_screen_size()
+    w,h = math.floor(w/2),math.floor(h/2)
+    window = sg.Window('MalMail 0.0.1', layout, resizable=True, finalize=True, size=(w,h))

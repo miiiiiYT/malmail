@@ -1,2 +1,2 @@
 import PySimpleGUI as sg
-import webbrowser
+import math
