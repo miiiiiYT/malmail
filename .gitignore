@@ -130,3 +130,6 @@ dmypy.json
 
 # VScode settings
 .vscode/
+
+# sensitive data
+data/

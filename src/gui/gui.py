@@ -1,14 +1,27 @@
+"""
+    Script responsible for building the GUI.
+"""
+
 from src import *
 
 sg.theme('BlueMono')
 class Gui:
-    menu = [['MalMail', ['About','Settings','Exit']],['Tools',['Spam',['1','2']]]]
+    with open('data/accounts.json') as f:
+        accounts = json.load(f)
+        f.close()
+
+    menu = [['MalMail', ['About','Settings','Exit']],['Tools',['Spam',['1','2']]],['Accounts',['Add', 'Show']]]
 
     account_lay = [
-        [
-            sg.Text('Accounts')
-        ]
+        [sg.Text('Accounts')],
     ]
+    for acc in accounts:
+        i = 0
+        account_lay.append(
+            [sg.Radio(f"{acc}",'account',key=f'-ACC-{accounts[acc]["id"]}-',enable_events=True)]#type: ignore
+        )
+        i=i+1
+
     messages_lay = [
         sg.Listbox(values=['Listbox 1', 'Listbox 2', 'Listbox 3'])
     ]
