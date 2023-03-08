@@ -3,12 +3,11 @@
 """
 
 from src import *
+import src.functions.accounts as _accounts
 
 sg.theme('BlueMono')
 class Gui:
-    with open('data/accounts.json') as f:
-        accounts = json.load(f)
-        f.close()
+    accounts = _accounts.get_all_accounts()
 
     menu = [['MalMail', ['About','Settings','Exit']],['Tools',['Spam',['1','2']]],['Accounts',['Add', 'Show']]]
 
@@ -18,7 +17,7 @@ class Gui:
     for acc in accounts:
         i = 0
         account_lay.append(
-            [sg.Radio(f"{acc}",'account',key=f'-ACC-{accounts[acc]["id"]}-',enable_events=True)]#type: ignore
+            [sg.Radio(f"{acc}",'account',key=f'-ACC-{str(accounts[acc]["id"])}-',enable_events=True)]#type: ignore
         )
         i=i+1
 
