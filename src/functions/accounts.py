@@ -1,17 +1,22 @@
 from src import *
 
 def get_all_accounts() -> dict:
+    """
+        Load all existing accounts into a dict.
+    """
     with open('data/accounts.json') as f:
         accounts = json.load(f)
         f.close()
     return accounts
 
 def write_accounts(accounts:dict) -> None:
+    """Accepts a dictionary and writes it to the json file."""
     with open('data/accounts.json','w') as f:
         json.dump(accounts,f)
         f.close()
 
 def get_next_id() -> int:
+    """Loads the current accounts and figures out the next id."""
     id = 0
     data = get_all_accounts()
     for item in data:
@@ -47,6 +52,7 @@ class Account():
             raise ValueError('Arguments were provided incorrectly.')
     
     def create(self):
+        """Save the account to the json file."""
         data = get_all_accounts()
         
         _account = self.export()
@@ -57,6 +63,7 @@ class Account():
         write_accounts(data)
 
     def export(self) -> dict:
+        """Export the account as a dictionary."""
         return {
             'email':self.email,
             'imap-addr':self.imapaddr,
@@ -67,6 +74,7 @@ class Account():
         }
     
     def delete(self):
+        """Deletes the account."""
         data = get_all_accounts()
         try:
             data.pop(self.email)
