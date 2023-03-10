@@ -133,3 +133,4 @@ dmypy.json
 
 # sensitive data
 data/
+data/config.json
