@@ -32,7 +32,8 @@ while True:
                 [sg.Push(),sg.OK(),sg.Cancel()]
             ]
             acc_creator_event, acc_creator_values = sg.Window('Create Account - MalMail',layout,modal=True).read(close=True)#type: ignore
-            Account(email=acc_creator_values['-ADD-EMAIL-'],imapaddr=acc_creator_values['-ADD-IMAP-'],smtpaddr=acc_creator_values['-ADD-SMTP-'],password=acc_creator_values['-ADD-PASSWORD-'],imapport=acc_creator_values['-ADD-IMAP-PORT-'],smtpport=acc_creator_values['-ADD-SMTP-PORT-']).create()
+            if acc_creator_event == 'OK':
+                Account(email=acc_creator_values['-ADD-EMAIL-'],imapaddr=acc_creator_values['-ADD-IMAP-'],smtpaddr=acc_creator_values['-ADD-SMTP-'],password=acc_creator_values['-ADD-PASSWORD-'],imapport=acc_creator_values['-ADD-IMAP-PORT-'],smtpport=acc_creator_values['-ADD-SMTP-PORT-']).create()
 
     if event == 'Add-Acc':
         print(event)
